@@ -1,0 +1,31 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- general application log -->
+	<appender name="LogFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="output/html/LogFile.log" />
+		<!-- <param name="Append" value="false" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{dd-MM-yyyy} - %m%n" />
+		</layout>
+	</appender>
+	<appender name="ErrorLogFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="output/html/ErrorLogFile.log" />
+		<!-- <param name="Append" value="false" /> -->
+		<param name="Threshold" value="ERROR" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{dd-MM-yyyy} - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.example.LogFile">
+		<level value="INFO" />
+		<appender-ref ref="LogFile" />
+		<appender-ref ref="ErrorLogFile" />
+	</logger>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="LogFile" />
+		<appender-ref ref="ErrorLogFile" />
+	</root>
+</log4j:configuration>
