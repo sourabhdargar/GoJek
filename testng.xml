@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GoJek" preserve-order="true">
+	<test name="GoJek Automation">
+		<classes>
+			<class name="genericLib.BaseClass" />
+			<class name="home.BuyPillowTest" />			
+		</classes>
+	</test>
+</suite>
