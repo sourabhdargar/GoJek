@@ -1,6 +1,6 @@
 # GoJek
 
-#Framework used: Hybird Framework(Data Driven + POM)
+#Framework used: Hybrid Framework(Data Driven + POM)
 
 # testng.xml - To execute and run the suite
 # Base Class - Initialize variables and launch browser
