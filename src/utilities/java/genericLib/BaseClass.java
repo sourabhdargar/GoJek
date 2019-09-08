@@ -62,11 +62,9 @@ public class BaseClass {
 			fs = new FileInputStream("./src/main/resources/Constants/costants.properties");
 			CONSTANTS.load(fs);
 
-			if(CONFIG.getProperty("browser").equalsIgnoreCase("firefox")){
-				FirefoxProfile profile = new FirefoxProfile();
-				profile.setPreference("browser.download.folderList", 1);
-				profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "text/plain");
-				BaseClass.driver=new FirefoxDriver(profile);
+			if(CONFIG.getProperty("browser").equalsIgnoreCase("firefox")){				            
+				System.setProperty("webdriver.gecko.driver","./src/test/resources/Drivers/geckodriver.exe");
+				BaseClass.driver=new FirefoxDriver();
 				logger.info("Mozilla Firefox Browser is Launching");
 			}else if(CONFIG.getProperty("browser").equalsIgnoreCase("ie")){
 				System.setProperty("webdriver.ie.driver", "./src/test/resources/Drivers/IEDriverServer.exe");
@@ -79,7 +77,6 @@ public class BaseClass {
 			}
 			broswerDetails();
 			driver.manage().window().maximize();
-			driver.get(CONFIG.getProperty("testSiteURL"));
 			System.out.println(driver.manage().window().getSize());	
 
 			logger.info("===================================================================================================");
